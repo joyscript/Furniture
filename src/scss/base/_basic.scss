@@ -1,0 +1,92 @@
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-width: 320px;
+  overflow-y: auto;
+
+  &.lock {
+    overflow: hidden;
+  }
+}
+
+main {
+  flex-grow: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+span {
+  display: inline-block;
+}
+
+button {
+  display: block;
+  cursor: pointer;
+  color: inherit;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 2px;
+  transition: color 0.3s;
+}
+
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #aaa;
+}
+
+// ---------------------------
+
+.wrapper {
+  max-width: $wrapper-width;
+  margin: 0 auto;
+  padding: 80px 40px 100px;
+  @include media-l {
+    padding: 80px 30px 100px;
+  }
+  @include media-m {
+    padding: 60px 30px;
+  }
+  @include media-s {
+    padding: 42px 10px;
+  }
+}
