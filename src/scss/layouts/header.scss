@@ -1,0 +1,170 @@
+.header {
+  padding: 40px 0;
+}
+
+.header__wrapper {
+  min-height: 45px;
+  display: flex;
+  align-items: center;
+}
+
+.header__main {
+  display: flex;
+  align-items: center;
+  flex-basis: 494px;
+  justify-content: space-between;
+  gap: 20px;
+  padding-right: perc(39px);
+}
+
+.header__menu {
+  flex-basis: 345px;
+}
+
+.header__search {
+  flex-basis: 473px;
+  margin-right: perc(40px);
+}
+
+.header__actions {
+  margin-left: auto;
+}
+
+// --------------------------------
+
+.logo {
+  padding: 5px;
+  margin-left: -5px;
+  @include font(2.4rem, 1, 700, $color-dark);
+}
+
+.menu {
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    min-width: 300px;
+  }
+
+  &__link {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 11px;
+    padding: 5px;
+    color: $color-title;
+
+    &::before {
+      order: 1;
+      font-size: 9px;
+      padding-top: 2px;
+    }
+  }
+}
+
+.search {
+  position: relative;
+  min-width: 240px;
+  height: 45px;
+
+  &__input {
+    width: 100%;
+    height: 100%;
+    padding: 10px 10px 10px 44px;
+
+    &::placeholder {
+      @include font(14px, 1.5, 400, $color-gray);
+    }
+  }
+
+  &__button {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 152px;
+  height: 40px;
+
+  &__button {
+    width: 24px;
+    height: 24px;
+    color: $color-icons;
+
+    &._icon-heart {
+      font-size: 21px;
+    }
+    &._icon-cart {
+      font-size: 23px;
+    }
+  }
+
+  &__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    overflow: hidden;
+    cursor: pointer;
+  }
+}
+
+//Burger
+/*
+.icon-menu {
+	display: none;
+	@media (max-width: $mobile) {
+		display: block;
+		position: relative;
+		width: rem(30);
+		height: rem(18);
+		cursor: pointer;
+		z-index: 5;
+		span,
+		&::before,
+		&::after {
+			content: "";
+			transition: all 0.3s ease 0s;
+			right: 0;
+			position: absolute;
+			width: 100%;
+			height: rem(2);
+			background-color: #000;
+		}
+		&::before {
+			top: 0;
+		}
+		&::after {
+			bottom: 0;
+		}
+		span {
+			top: calc(50% - rem(1));
+		}
+		.menu-open & {
+			span {
+				width: 0;
+			}
+			&::before,
+			&::after {
+			}
+			&::before {
+				top: calc(50% - rem(1));
+				transform: rotate(-45deg);
+			}
+			&::after {
+				bottom: calc(50% - rem(1));
+				transform: rotate(45deg);
+			}
+		}
+	}
+}
+*/

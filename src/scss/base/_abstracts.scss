@@ -1,3 +1,31 @@
+// Constants =================================
+$color-light: #ffffff;
+$color-dark: #000000;
+$color-title: #3a3a3a;
+$color-text: #898989;
+
+$color-gray: #616161;
+$color-gray4: #b0b0b0;
+$color-gray5: #d8d8d8;
+$color-light-bg: #f4f5f7;
+$color-prim-bg: #f9f1e7;
+$color-prim: #e89f71;
+$color-red-accent: #e97171;
+$color-green-accent: #2ec1ac;
+
+$color-icons: #262f56;
+
+$wrapper-width: 1440px;
+$content-width: 1240px;
+
+// Placeholders ==============================
+
+%trans {
+  transition: all 0.25s ease-in-out;
+}
+
+// Mixins ===================================
+
 @mixin addFont($font, $file, $weight, $style: normal) {
   @font-face {
     font-family: $font;
@@ -8,12 +36,20 @@
   }
 }
 
-@mixin font($size, $height: 1, $color: inherit, $weight: 400, $style: normal) {
+@mixin font($size, $height: 1.5, $weight: inherit, $color: inherit, $style: normal) {
   font-size: $size;
   line-height: $height;
   font-weight: $weight;
   font-style: $style;
   color: $color;
+}
+
+@mixin hov() {
+  &:hover,
+  &:focus,
+  &:active {
+    @content;
+  }
 }
 
 @mixin img($pos: center) {
@@ -32,4 +68,75 @@
 @function perc($width, $container-width: $content-width) {
   $result: calc($width / $container-width * 100%);
   @return $result;
+}
+
+// Равномерное распределение колонок на основе ширины в процентах, gap также рассчитывается в %
+@mixin flex($width) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  > * {
+    flex-basis: calc($width / $content-width * 100%);
+  }
+}
+
+// Если нужно точное количество колонок и точный gap
+@mixin cols($cols, $gap) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: $gap;
+
+  > * {
+    flex-basis: calc((100% - ($cols - 1) * $gap) / $cols);
+  }
+}
+
+@mixin fbasis($width, $container-width: $content-width) {
+  flex-basis: calc(($width / $container-width) * 100%);
+}
+
+@mixin flex-col($pos: flex-start) {
+  display: flex;
+  flex-direction: column;
+  align-items: $pos;
+}
+
+// media -------------------------------------------------
+
+@mixin media-lap {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin media-tab {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin media-mob {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+
+@mixin media-mm {
+  @media (max-width: 480px) {
+    @content;
+  }
+}
+
+@mixin media-sm {
+  @media (max-width: 375px) {
+    @content;
+  }
+}
+
+@mixin media($width) {
+  @media (max-width: $width) {
+    @content;
+  }
 }

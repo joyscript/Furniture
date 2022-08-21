@@ -40,16 +40,32 @@ html {
 
 body {
   font-family: Gilroy, sans-serif;
-  font-size: 3rem;
+  font-size: 1.6rem;
   line-height: 1.5;
-  font-weight: 400;
+  font-weight: 500;
   font-style: normal;
-  color: blue;
+  color: #898989;
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-size: 5.6rem;
+  line-height: 1.2;
+  font-weight: 700;
+  font-style: normal;
+  color: #3a3a3a;
+}
+
+h2 {
+  font-size: 4rem;
+  line-height: 1.2;
+  font-weight: 700;
+  font-style: normal;
+  color: #3a3a3a;
 }
 
 [class*=_icon-]::before {
@@ -59,6 +75,7 @@ body {
   font-variant: normal;
   text-transform: none;
   line-height: 1;
+  display: inline-block;
 }
 
 ._icon-arrow:before {
@@ -262,5 +279,255 @@ template {
 [hidden] {
   display: none;
 }
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+}
+
+body {
+  min-width: 320px;
+  overflow-y: auto;
+  background-color: #f9f1e7;
+}
+body.lock {
+  overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+span {
+  display: inline-block;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 2px;
+  transition: color 0.3s;
+}
+
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #aaa;
+}
+
+[class*=__wrapper] {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+@media (max-width: 768px) {
+  [class*=__wrapper] {
+    padding: 0 15px;
+  }
+}
+
+.header {
+  padding: 40px 0;
+}
+
+.header__wrapper {
+  min-height: 45px;
+  display: flex;
+  align-items: center;
+}
+
+.header__main {
+  display: flex;
+  align-items: center;
+  flex-basis: 494px;
+  justify-content: space-between;
+  gap: 20px;
+  padding-right: 3.1451612903%;
+}
+
+.header__menu {
+  flex-basis: 345px;
+}
+
+.header__search {
+  flex-basis: 473px;
+  margin-right: 3.2258064516%;
+}
+
+.header__actions {
+  margin-left: auto;
+}
+
+.logo {
+  padding: 5px;
+  margin-left: -5px;
+  font-size: 2.4rem;
+  line-height: 1;
+  font-weight: 700;
+  font-style: normal;
+  color: #000000;
+}
+
+.menu__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  min-width: 300px;
+}
+.menu__link {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 11px;
+  padding: 5px;
+  color: #3a3a3a;
+}
+.menu__link::before {
+  order: 1;
+  font-size: 9px;
+  padding-top: 2px;
+}
+
+.search {
+  position: relative;
+  min-width: 240px;
+  height: 45px;
+}
+.search__input {
+  width: 100%;
+  height: 100%;
+  padding: 10px 10px 10px 44px;
+}
+.search__input::placeholder {
+  font-size: 14px;
+  line-height: 1.5;
+  font-weight: 400;
+  font-style: normal;
+  color: #616161;
+}
+.search__button {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 20px;
+  height: 20px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 152px;
+  height: 40px;
+}
+.actions__button {
+  width: 24px;
+  height: 24px;
+  color: #262f56;
+}
+.actions__button._icon-heart {
+  font-size: 21px;
+}
+.actions__button._icon-cart {
+  font-size: 23px;
+}
+.actions__avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+/*
+.icon-menu {
+	display: none;
+	@media (max-width: $mobile) {
+		display: block;
+		position: relative;
+		width: rem(30);
+		height: rem(18);
+		cursor: pointer;
+		z-index: 5;
+		span,
+		&::before,
+		&::after {
+			content: "";
+			transition: all 0.3s ease 0s;
+			right: 0;
+			position: absolute;
+			width: 100%;
+			height: rem(2);
+			background-color: #000;
+		}
+		&::before {
+			top: 0;
+		}
+		&::after {
+			bottom: 0;
+		}
+		span {
+			top: calc(50% - rem(1));
+		}
+		.menu-open & {
+			span {
+				width: 0;
+			}
+			&::before,
+			&::after {
+			}
+			&::before {
+				top: calc(50% - rem(1));
+				transform: rotate(-45deg);
+			}
+			&::after {
+				bottom: calc(50% - rem(1));
+				transform: rotate(45deg);
+			}
+		}
+	}
+}
+*/
 
 /*# sourceMappingURL=style.css.map */
