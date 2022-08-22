@@ -47,6 +47,7 @@ $content-width: 1240px;
 @mixin hov() {
   &:hover,
   &:focus,
+  &:focus-visible,
   &:active {
     @content;
   }
@@ -105,32 +106,26 @@ $content-width: 1240px;
 
 // media -------------------------------------------------
 
-@mixin media-lap {
-  @media (max-width: 1024px) {
+@mixin media-l {
+  @media (max-width: ($wrapper-width - 0.02px)) {
     @content;
   }
 }
 
-@mixin media-tab {
-  @media (max-width: 768px) {
+@mixin media-t {
+  @media (max-width: 1023.98px) {
     @content;
   }
 }
 
-@mixin media-mob {
-  @media (max-width: 600px) {
+@mixin media-m {
+  @media (max-width: 767.98px) {
     @content;
   }
 }
 
-@mixin media-mm {
-  @media (max-width: 480px) {
-    @content;
-  }
-}
-
-@mixin media-sm {
-  @media (max-width: 375px) {
+@mixin media-s {
+  @media (max-width: 479.98px) {
     @content;
   }
 }
@@ -140,3 +135,4 @@ $content-width: 1240px;
     @content;
   }
 }
+
