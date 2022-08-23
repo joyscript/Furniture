@@ -1,40 +1,38 @@
 export const menu = () => {
   const menu = document.querySelector('.menu');
 
-  const toggleSubmenu = (e) => {
-    const elem = e.target.closest('.has-sublist');
+  const openSubmenu = (elem) => {
+    elem.classList.add('active');
+    if (window.innerWidth < 1024) elem.style.height = elem.scrollHeight + 'px';
+  };
 
+  const closeSubmenu = (elem) => {
+    elem.classList.remove('active');
+    if (window.innerWidth < 1024) elem.style = '';
+  };
+
+  const closeActiveSubmenu = () => {
+    const activeSubmenu = menu.querySelector('.has-sublist.active');
+    if (activeSubmenu) closeSubmenu(activeSubmenu);
+  };
+
+  const toggleSubmenu = (elem) => {
     if (getComputedStyle(elem.querySelector('.menu__sublist')).opacity == 1) {
-      elem.classList.remove('active');
-      elem.style = '';
+      closeSubmenu(elem);
     } else {
-      closeSubmenu();
-      elem.classList.add('active');
-      if (window.innerWidth < 1024) elem.style.height = elem.scrollHeight + 'px';
+      closeActiveSubmenu();
+      openSubmenu(elem);
     }
   };
 
-  const closeSubmenu = () => {
-    const activeElem = menu.querySelector('.has-sublist.active');
-    if (activeElem) {
-      activeElem.classList.remove('active');
-      activeElem.style = '';
+  menu.querySelectorAll('.has-sublist').forEach((item) => {
+    item.addEventListener('focusin', (e) => openSubmenu(e.currentTarget));
+    item.addEventListener('focusout', (e) => closeSubmenu(e.currentTarget));
+    item.addEventListener('click', (e) => toggleSubmenu(e.currentTarget));
+
+    if (window.matchMedia('(hover: hover)').matches) {
+      item.addEventListener('mouseenter', (e) => openSubmenu(e.currentTarget));
+      item.addEventListener('mouseleave', (e) => closeSubmenu(e.currentTarget));
     }
-  };
-
-  if (window.innerWidth >= 1024) {
-    menu.querySelectorAll('.has-sublist').forEach((item) => {
-      item.addEventListener('focusin', (e) => e.currentTarget.classList.add('active'));
-      item.addEventListener('focusout', (e) => e.currentTarget.classList.remove('active'));
-
-      if (window.matchMedia('(hover: hover)').matches) {
-        item.addEventListener('mouseenter', (e) => e.currentTarget.classList.add('active'));
-        item.addEventListener('mouseleave', (e) => e.currentTarget.classList.remove('active'));
-      }
-    });
-  }
-
-  if ('ontouchstart' in window) {
-    document.addEventListener('click', (e) => (e.target.closest('.has-sublist') ? toggleSubmenu(e) : closeSubmenu()));
-  }
+  });
 };

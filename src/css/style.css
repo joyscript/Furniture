@@ -1,4 +1,4 @@
-.actions__button, .menu__sublist {
+.actions__button {
   transition: all 0.25s ease-in-out;
 }
 
@@ -366,13 +366,6 @@ input:focus-visible {
   outline: 2px solid #e89f71;
 }
 
-@media (max-width: 1023.98px) {
-  a:focus,
-button:focus,
-input:focus {
-    outline: 0;
-  }
-}
 [class*=__wrapper] {
   max-width: 1300px;
   margin: 0 auto;
@@ -523,7 +516,7 @@ input:focus {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition-duration: 0.3s;
+  transition: all 0.3s;
 }
 @media (max-width: 1023.98px) {
   .menu__sublist {

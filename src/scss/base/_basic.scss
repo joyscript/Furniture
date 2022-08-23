@@ -81,13 +81,13 @@ input:focus-visible {
   outline: 2px solid $color-prim;
 }
 
-@include media-t {
-  a:focus,
-  button:focus,
-  input:focus {
-    outline: 0;
-  }
-}
+// @include media-t {
+//   a:focus,
+//   button:focus,
+//   input:focus {
+//     outline: 0;
+//   }
+// }
 
 // ---------------------------
 
