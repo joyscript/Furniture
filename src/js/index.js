@@ -1,3 +1,3 @@
-import { menu } from './modules/menu.js';
+import { headerClickHandler } from './modules/header.js';
 
-menu();
+headerClickHandler();

@@ -1,0 +1,102 @@
+.actions {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  height: 40px;
+  @include media(420px) {
+    gap: 15px;
+  }
+  @include media(360px) {
+    gap: 9px;
+  }
+
+  &__button {
+    width: 34px;
+    height: 34px;
+    font-size: 21px;
+    color: $color-icons;
+    transition: color 0.2s;
+    @include hov {
+      color: $color-prim;
+    }
+  }
+
+  .icon-search {
+    padding-bottom: 1px;
+    opacity: 0.8;
+    @media (min-width: 1024px) {
+      display: none;
+    }
+  }
+
+  .icon-cart {
+    position: relative;
+    right: 3px;
+    font-size: 23px;
+
+    span {
+      position: absolute;
+      top: -4px;
+      right: -6px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: $color-prim;
+      @include font(12px, 20px, 400, $color-light);
+      text-align: center;
+    }
+  }
+
+  &__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+
+    @include media-m {
+      width: 34px;
+      height: 34px;
+    }
+  }
+}
+
+// ------------------------------
+
+.burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 7px 2px;
+
+  span,
+  &:before,
+  &:after {
+    content: '';
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background: $color-icons;
+    transition: all 0.3s;
+  }
+
+  .menu-open & {
+    span {
+      width: 0;
+    }
+    &::before {
+      top: 50%;
+      transform: rotate(-45deg) scale(1.1);
+    }
+    &::after {
+      bottom: calc(50% - 2px);
+      transform: rotate(45deg) scale(1.1);
+    }
+  }
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}

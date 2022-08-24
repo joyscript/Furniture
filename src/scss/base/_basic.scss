@@ -17,8 +17,25 @@ body {
   overflow-y: auto;
   background-color: $color-prim-bg;
 
-  &.lock {
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100vh;
+    background: #000;
+    transition: opacity 0.5s;
+    opacity: 0;
+  }
+
+  &.search-open,
+  &.menu-open {
     overflow: hidden;
+    &::before {
+      width: 100%;
+      opacity: 0.2;
+    }
   }
 }
 
@@ -80,14 +97,6 @@ button:focus-visible,
 input:focus-visible {
   outline: 2px solid $color-prim;
 }
-
-// @include media-t {
-//   a:focus,
-//   button:focus,
-//   input:focus {
-//     outline: 0;
-//   }
-// }
 
 // ---------------------------
 

@@ -1,11 +1,26 @@
 .header {
+  position: fixed;
+  width: 100%;
+  z-index: 20;
   padding: 40px 0;
+  @include media-t {
+    padding: 20px 0;
+  }
+  @include media-m {
+    padding: 5px 0;
+  }
+  @include media(319.9px) {
+    position: static;
+  }
 }
 
 .header__wrapper {
   min-height: 45px;
   display: flex;
   align-items: center;
+  @include media-m {
+    min-height: 40px;
+  }
 }
 
 .header__main {
@@ -16,8 +31,9 @@
   gap: 20px;
   padding-right: perc(39px);
 
-  @include media-t {
-    flex-basis: auto;
+  @include media-m {
+    gap: 0;
+    padding-right: 0;
   }
 }
 
@@ -37,230 +53,12 @@
 // --------------------------------
 
 .logo {
+  position: relative;
+  z-index: 20;
   padding: 5px;
   margin-left: -5px;
   @include font(2.4rem, 1, 700, $color-dark);
   @include hov {
     color: $color-prim;
-  }
-}
-
-.menu__list {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  column-gap: 10px;
-  min-width: 320px;
-
-  @include media-t {
-    position: fixed;
-    top: 0;
-    left: 0%;
-    z-index: 50;
-    width: 100vw;
-    max-width: 320px;
-    height: 100vh;
-    padding: 50px;
-    display: block;
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
-    flex-wrap: nowrap;
-    background: pink;
-  }
-}
-
-.menu__item {
-  position: relative;
-
-  &.active {
-    .menu__link {
-      color: $color-prim;
-      &::before {
-        transform: rotate(180deg);
-        color: $color-prim;
-      }
-    }
-
-    .menu__sublist {
-      top: 100%;
-      opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
-    }
-  }
-
-  @include media-t {
-    height: 46px;
-    overflow: hidden;
-    transition: height 0.3s;
-  }
-}
-
-.menu__link {
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  padding: 5px;
-  color: $color-title;
-
-  &::before {
-    order: 1;
-    font-size: 9px;
-    padding-top: 2px;
-    transition: transform 0.25s, color 0.25s;
-  }
-
-  @include media-t {
-    font-size: 2.4rem;
-    &:not(:first-child) {
-      margin-top: 20px;
-    }
-  }
-
-  .menu__item.active & {
-    color: $color-prim;
-    &::before {
-      transform: rotate(180deg);
-      color: $color-prim;
-    }
-  }
-}
-
-.menu__sublist {
-  position: absolute;
-  top: calc(100% - 10px);
-  left: 0;
-  width: 100px;
-  background-color: $color-light;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transition: all 0.3s;
-
-  @include media-t {
-    width: 150px;
-    position: static;
-  }
-}
-
-.menu__sublink {
-  width: 100%;
-  padding: 5px;
-  color: $color-gray;
-  @include hov {
-    color: $color-prim;
-  }
-}
-
-// --------------------------------
-
-.search {
-  position: relative;
-  min-width: 240px;
-  height: 45px;
-
-  &__input {
-    width: 100%;
-    height: 100%;
-    padding: 10px 10px 10px 44px;
-
-    &::placeholder {
-      @include font(14px, 1.5, 400, $color-gray);
-    }
-  }
-
-  &__button {
-    position: absolute;
-    top: 12px;
-    left: 12px;
-    width: 20px;
-    height: 20px;
-  }
-}
-
-// --------------------------------
-
-.actions {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 22px;
-  width: 152px;
-  height: 40px;
-
-  @include media-t {
-    width: 200px;
-  }
-
-  &__button {
-    width: 24px;
-    height: 24px;
-    color: $color-icons;
-    @extend %trans;
-    transition-duration: 0.2s;
-    @include hov {
-      color: $color-prim;
-    }
-
-    &._icon-heart {
-      font-size: 21px;
-    }
-    &._icon-cart {
-      font-size: 23px;
-    }
-  }
-
-  &__avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 100%;
-    overflow: hidden;
-    cursor: pointer;
-  }
-}
-
-.burger {
-  display: none;
-
-  @include media-t {
-    position: relative;
-    z-index: 10;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    width: 40px;
-    height: 30px;
-    padding: 5px;
-    background: transparent;
-    transition: transform 0.3s;
-    cursor: pointer;
-
-    span,
-    &:before,
-    &:after {
-      content: '';
-      position: relative;
-      width: 100%;
-      height: 2px;
-      background: $color-icons;
-      transition: background 0.3s;
-    }
-
-    .menu-open & {
-      span {
-        width: 0;
-      }
-      &::before {
-        top: calc(50% - 2px);
-        transform: rotate(-45deg);
-      }
-      &::after {
-        bottom: calc(50% - 2px);
-        transform: rotate(45deg);
-      }
-    }
   }
 }

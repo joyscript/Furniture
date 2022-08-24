@@ -29,7 +29,7 @@ h2 {
 
 // Icons font ---------------------------
 
-[class*='_icon-']::before {
+[class*='icon-']::before {
   font-family: 'icons';
   font-style: normal;
   font-weight: normal;
@@ -39,33 +39,33 @@ h2 {
   display: inline-block;
 }
 
-._icon-arrow:before {
+.icon-arrow:before {
   content: '\e900';
 }
-._icon-arrow2:before {
+.icon-arrow2:before {
   content: '\e901';
 }
-._icon-arrow-link:before {
+.icon-arrow-link:before {
   content: '\e902';
 }
-._icon-cart:before {
+.icon-cart:before {
   content: '\e903';
 }
-._icon-heart:before {
+.icon-heart:before {
   content: '\e904';
 }
-._icon-location:before {
+.icon-location:before {
   content: '\e905';
 }
-._icon-phone:before {
+.icon-phone:before {
   content: '\e906';
 }
-._icon-search:before {
+.icon-search:before {
   content: '\e907';
 }
-._icon-send:before {
+.icon-send:before {
   content: '\e908';
 }
-._icon-share:before {
+.icon-share:before {
   content: '\e909';
 }

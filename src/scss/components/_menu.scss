@@ -1,0 +1,155 @@
+.menu {
+  @include media-m {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    width: 300px;
+    height: 100vh;
+    padding: 90px 15px 15px;
+    background: $color-light;
+    transition: right 0.5s;
+    overflow: auto;
+
+    &::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      right: -100%;
+      z-index: 15;
+      width: 300px;
+      height: 50px;
+      background: $color-light;
+      box-shadow: 0 0 3px rgba(200, 200, 200, 0.3);
+      transition: right 0.5s;
+    }
+
+    .menu-open & {
+      right: 0;
+      &::before {
+        right: 0;
+      }
+    }
+  }
+
+  @include media(420px) {
+    width: 100%;
+    &::before {
+      width: 100%;
+    }
+  }
+}
+
+.menu__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  column-gap: 10px;
+  min-width: 320px;
+  transition: all 0.3s;
+  @include media-m {
+    display: block;
+    min-width: auto;
+  }
+}
+
+.menu__item {
+  position: relative;
+
+  @include media-m {
+    position: static;
+    height: 50px;
+    overflow: hidden;
+    transition: all 0.4s;
+    &:not(:first-child) {
+      margin-top: 15px;
+    }
+  }
+
+  @media (any-hover: hover) and (min-width: 1024px) {
+    &:hover {
+      .menu__link {
+        color: $color-prim;
+        &::before {
+          transform: rotate(180deg);
+          color: $color-prim;
+        }
+      }
+      .menu__sublist {
+        transform: none;
+        @include show();
+      }
+    }
+  }
+
+  &.active {
+    .menu__link {
+      color: $color-prim;
+      &::before {
+        transform: rotate(180deg);
+        color: $color-prim;
+      }
+    }
+    .menu__sublist {
+      transform: none;
+      @include show();
+    }
+  }
+}
+
+.menu__link {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 5px;
+  color: $color-title;
+
+  &::before {
+    order: 1;
+    font-size: 9px;
+    padding-top: 2px;
+    transition: transform 0.25s, color 0.25s;
+  }
+
+  @include media-m {
+    padding: 7px 20px;
+    font-size: 24px;
+    &::before {
+      font-size: 11px;
+    }
+  }
+}
+
+.menu__sublist {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100px;
+  @include hide();
+  background-color: $color-light;
+  transform: translateY(-10px);
+  transition: all 0.3s;
+
+  @include media-m {
+    position: static;
+    width: 100%;
+    transform: none;
+  }
+}
+
+.menu__sublink {
+  width: 100%;
+  padding: 5px;
+  color: $color-gray;
+  @include hov {
+    color: $color-prim;
+  }
+
+  @include media-m {
+    padding: 7px 10px 7px 30px;
+    font-size: 20px;
+  }
+}
