@@ -1,0 +1,47 @@
+.hero {
+  position: relative;
+  background: $color-prim-bg;
+  height: 774px; //delete
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+    height: 100%;
+    width: calc(476px + (100% - 1440px) / 2);
+    background: $color-light-bg;
+    @include media-l {
+      width: perc(476, 1440);
+    }
+    @include media(1070px) {
+      width: 300px;
+    }
+    @include media-t {
+      width: 277px;
+    }
+    @include media-m {
+      width: 300px;
+    }
+    @include media-s {
+      width: 100%;
+    }
+  }
+}
+
+.hero__wrapper {
+  position: relative;
+  padding-top: 141px;
+}
+
+.hero__content {
+  position: absolute;
+  z-index: 5;
+  width: perc(494, 1300);
+  height: 553px;
+  padding: 60px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(31px);
+}

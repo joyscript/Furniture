@@ -4,15 +4,14 @@
 @import 'base/normalize';
 @import 'base/basic';
 // @import 'base/common';
-// @import 'base/slider';
 // @import 'base/popup';
 
-// Components
-@import 'components/menu';
-@import 'components/search';
-@import 'components/actions';
+// Header
+@import 'header/header';
+@import 'header/menu';
+@import 'header/search';
+@import 'header/actions';
 
-// Layouts
-@import 'layouts/header';
-// @import 'layouts/main';
-// @import 'layouts/footer';
+// Main
+@import 'main/hero';
+@import 'main/slider';

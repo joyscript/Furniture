@@ -15,7 +15,6 @@ html {
 body {
   min-width: 320px;
   overflow-y: auto;
-  background-color: $color-prim-bg;
 
   &::before {
     content: '';
@@ -107,10 +106,4 @@ input:focus-visible {
   @include media-m {
     padding: 0 15px;
   }
-  // @include media-m {
-  //   padding: 60px 30px;
-  // }
-  // @include media-s {
-  //   padding: 42px 10px;
-  // }
 }

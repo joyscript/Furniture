@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Furniture</title>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <script defer src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script type="module" src="js/index.js"></script>
   </head>
   <body>
@@ -57,9 +58,35 @@
           </a>
           <button class="actions__button burger"><span></span></button>
         </div>
-
-        <div class="overflow"></div>
       </div>
     </header>
+
+    <main class="main">
+      <section class="hero">
+        <div class="hero__wrapper">
+          <div class="hero__content">
+            <h1 class="hero__title">High-Quality Furniture Just For You</h1>
+            <p class="hero__text">Our furniture is made from selected and best quality materials that are suitable for your dream home</p>
+            <button class="hero__button">Shop Now</button>
+          </div>
+
+          <div class="hero__slider swiper">
+            <div class="swiper__controls">
+              <div class="swiper__dots"></div>
+              <div class="swiper__arrows">
+                <button class="swiper__btn-prev icon-arrow-btn"></button>
+                <button class="swiper__btn-next icon-arrow-btn"></button>
+              </div>
+            </div>
+            <div class="swiper-wrapper">
+              <div class="swiper-slide"><img src="img/slider/02.jpg" alt="Slide furniture" /></div>
+              <div class="swiper-slide"><img src="img/slider/03.jpg" alt="Slide furniture" /></div>
+              <div class="swiper-slide"><img src="img/slider/04.jpg" alt="Slide furniture" /></div>
+              <div class="swiper-slide"><img src="img/slider/01.jpg" alt="Slide furniture" /></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
   </body>
 </html>
