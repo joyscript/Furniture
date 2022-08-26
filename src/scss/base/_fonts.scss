@@ -27,6 +27,10 @@ h2 {
   @include font(4rem, 1.2, 700, $color-title);
 }
 
+h3 {
+  @include font(2.8rem, 1.2, 600, $color-title);
+}
+
 // Icons font ---------------------------
 
 [class*='icon-']::before {

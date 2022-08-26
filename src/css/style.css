@@ -68,6 +68,14 @@ h2 {
   color: #3a3a3a;
 }
 
+h3 {
+  font-size: 2.8rem;
+  line-height: 1.2;
+  font-weight: 600;
+  font-style: normal;
+  color: #3a3a3a;
+}
+
 [class*=icon-]::before {
   font-family: "icons";
   font-style: normal;
@@ -346,8 +354,9 @@ button {
   color: inherit;
   background: transparent;
   border: none;
-  outline-offset: 2px;
   cursor: pointer;
+  transition: background 0.3s;
+  outline-offset: 2px;
 }
 
 a {
@@ -424,24 +433,16 @@ input:focus-visible {
   display: flex;
   align-items: center;
   flex-basis: 39.8387096774%;
-  justify-content: space-between;
-  gap: 20px;
-  padding-right: 3.1451612903%;
-}
-@media (max-width: 767.98px) {
-  .header__main {
-    gap: 0;
-    padding-right: 0;
-  }
+  min-width: 450px;
 }
 
 .header__menu {
-  flex-basis: 345px;
+  flex-grow: 1;
 }
 
 .header__search {
   flex-basis: 473px;
-  margin-right: 3.2258064516%;
+  margin-right: 30px;
 }
 
 .header__actions {
@@ -510,15 +511,14 @@ input:focus-visible {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  column-gap: 10px;
-  min-width: 320px;
+  justify-content: space-evenly;
+  padding-right: 5px;
   transition: all 0.3s;
 }
 @media (max-width: 767.98px) {
   .menu__list {
     display: block;
-    min-width: auto;
+    padding-right: 0;
   }
 }
 
@@ -784,8 +784,8 @@ input:focus-visible {
 .hero {
   position: relative;
   background: #f9f1e7;
-  height: 774px;
   overflow: hidden;
+  margin-bottom: 200px;
 }
 .hero::before {
   content: "";
@@ -797,7 +797,7 @@ input:focus-visible {
   width: calc(476px + (100% - 1440px) / 2);
   background: #fcf8f3;
 }
-@media (max-width: 1439.98px) {
+@media (max-width: 1299.98px) {
   .hero::before {
     width: 33.0555555556%;
   }
@@ -825,30 +825,65 @@ input:focus-visible {
 
 .hero__wrapper {
   position: relative;
+  z-index: 2;
   padding-top: 141px;
 }
 
 .hero__content {
   position: absolute;
-  z-index: 5;
+  z-index: 3;
   width: 38%;
-  height: 553px;
+  min-width: 450px;
   padding: 60px;
   background: rgba(255, 255, 255, 0.72);
   backdrop-filter: blur(31px);
+  box-shadow: -1px 1px 3px rgba(200, 200, 200, 0.3);
+}
+
+.hero__title:not(:last-child) {
+  margin-bottom: 16px;
+}
+
+.hero__text {
+  font-size: 2rem;
+}
+.hero__text:not(:last-child) {
+  margin-bottom: 48px;
+}
+
+.hero__button {
+  width: 100%;
+  height: 78px;
+  font-size: 2rem;
+  line-height: 1.5;
+  font-weight: 600;
+  font-style: normal;
+  color: #ffffff;
+  background: #e89f71;
+}
+.hero__button:hover, .hero__button:focus, .hero__button:focus-visible, .hero__button:active {
+  background: #edb894;
 }
 
 .swiper {
-  width: 934px;
-  height: 623px;
+  position: relative;
+  width: 75.3225806452%;
   overflow: visible;
   margin-left: auto;
   margin-right: 0;
 }
-
 .swiper-slide {
-  width: 934px;
-  height: 553px;
+  padding-top: 59.2077087794%;
+  position: relative;
+}
+.swiper-slide > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
 .swiper__controls {
@@ -909,6 +944,64 @@ input:focus-visible {
 
 .swiper__btn-prev {
   transform: rotate(180deg);
+}
+
+.swiper__info {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  z-index: 10;
+}
+
+.info {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 294px;
+  min-height: 148px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(31px);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.info:hover, .info:focus, .info:focus-visible, .info:active {
+  background: rgba(255, 240, 230, 0.7);
+}
+.info:hover .info__price::before, .info:focus .info__price::before, .info:focus-visible .info__price::before, .info:active .info__price::before {
+  color: #e89f71;
+}
+.info__title:not(:last-child) {
+  margin-bottom: 4px;
+}
+.info__text {
+  color: #616161;
+}
+.info__text:not(:last-child) {
+  margin-bottom: 8px;
+}
+.info__price {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  font-size: 2rem;
+  line-height: 1.5;
+  font-weight: 600;
+  font-style: normal;
+  color: #3a3a3a;
+}
+.info__price::before {
+  width: 24px;
+  height: 24px;
+  font-size: 12px;
+  line-height: 24px;
+  font-weight: 600;
+  font-style: normal;
+  color: #000000;
+  text-align: center;
+  transition: color 0.3s;
 }
 
 /*# sourceMappingURL=style.css.map */

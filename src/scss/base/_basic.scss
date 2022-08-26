@@ -67,8 +67,9 @@ button {
   color: inherit;
   background: transparent;
   border: none;
-  outline-offset: 2px;
   cursor: pointer;
+  transition: background 0.3s;
+  outline-offset: 2px;
 }
 
 a {

@@ -1,14 +1,17 @@
 .swiper {
-  width: 934px;
-  height: 623px;
+  position: relative;
+  width: perc(934px);
   overflow: visible;
   margin-left: auto;
   margin-right: 0;
+  @include media-l {
+    // width: 87%;
+  }
 }
 
 .swiper-slide {
-  width: 934px;
-  height: 553px;
+  padding-top: perc(553, 934);
+  @include img;
 }
 
 .swiper__controls {
@@ -28,9 +31,9 @@
 .swiper-pagination-bullet {
   width: 27px;
   height: 27px;
-  border: 8px solid $color-prim-bg;
+  border: 8px solid $color-bg-prim;
   border-radius: 50%;
-  background: $color-lt-gray;
+  background: $color-gray-lt;
   transition: background 0.3s;
   opacity: 1;
   @include hov {
@@ -72,4 +75,63 @@
 
 .swiper__btn-prev {
   transform: rotate(180deg);
+}
+
+// -----------------------------
+
+.swiper__info {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  z-index: 10;
+}
+
+.info {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 294px;
+  min-height: 148px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(31px);
+  cursor: pointer;
+  transition: background 0.3s;
+
+  @include hov {
+    background: rgba(255, 240, 230, 0.7);
+    .info__price::before {
+      color: $color-prim;
+    }
+  }
+
+  &__title {
+    &:not(:last-child) {
+      margin-bottom: 4px;
+    }
+  }
+
+  &__text {
+    color: $color-gray;
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__price {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    @include font(2rem, 1.5, 600, $color-title);
+
+    &::before {
+      width: 24px;
+      height: 24px;
+      @include font(12px, 24px, 600, $color-dark);
+      text-align: center;
+      transition: color 0.3s;
+    }
+  }
 }

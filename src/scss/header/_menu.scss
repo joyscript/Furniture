@@ -46,13 +46,12 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  column-gap: 10px;
-  min-width: 320px;
+  justify-content: space-evenly;
+  padding-right: 5px;
   transition: all 0.3s;
   @include media-m {
     display: block;
-    min-width: auto;
+    padding-right: 0;
   }
 }
 
