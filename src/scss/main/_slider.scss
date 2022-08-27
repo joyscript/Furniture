@@ -1,31 +1,51 @@
-.swiper {
-  position: relative;
-  width: perc(934px);
+.slider-hero {
+  width: perc(934, 746);
+  min-width: 850px;
+  margin: 0;
   overflow: visible;
-  margin-left: auto;
-  margin-right: 0;
-  @include media-l {
-    // width: 87%;
+
+  @include media-t {
+    width: 100%;
+    min-width: auto;
+    overflow: hidden;
+  }
+
+  .swiper-slide img {
+    width: 100%;
   }
 }
+// ---------------------
 
-.swiper-slide {
-  padding-top: perc(553, 934);
-  @include img;
-}
-
-.swiper__controls {
+.controls {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 30px;
+  width: 100%;
   min-height: 80px;
-  padding-left: 216px;
-  padding-bottom: 10px;
+  padding: 0 0 10px 32px;
+  @include media-t {
+    padding: 0;
+  }
+  @include media-m {
+    padding: 0 15px;
+  };
 }
 
-.swiper__dots {
+.controls__dots {
   display: flex;
   flex-wrap: wrap;
+  @include media-s {
+    justify-content: center;
+  }
+}
+
+.controls__arrows {
+  display: flex;
+  gap: 8px;
+  @include media-s {
+    display: none;
+  }
 }
 
 .swiper-pagination-bullet {
@@ -36,102 +56,130 @@
   background: $color-gray-lt;
   transition: background 0.3s;
   opacity: 1;
-  @include hov {
-    background: $color-prim-md;
-  }
-}
-
-.swiper-pagination-bullet-active {
-  background: $color-prim;
-  outline: 1px solid $color-prim-md;
-}
-
-.swiper__arrows {
-  display: flex;
-  gap: 8px;
-}
-
-.swiper__arrows .icon-arrow-btn {
-  width: 48px;
-  height: 48px;
-  color: $color-prim;
-  border-radius: 50%;
-  background: $color-prim-lt;
-  transition: 0.3s;
-
   &:hover {
     background: $color-prim-md;
-    color: $color-light;
-    opacity: 0.8;
   }
-
   &:focus,
-  &:active {
-    color: $color-light;
+  &-active {
     background: $color-prim;
-    opacity: 1;
+    outline: 1px solid $color-prim-md;
   }
-}
-
-.swiper__btn-prev {
-  transform: rotate(180deg);
 }
 
 // -----------------------------
 
-.swiper__info {
+.swiper-slide__info {
   position: absolute;
   bottom: 40px;
   right: 40px;
   z-index: 10;
+  @include media-t {
+    position: static;
+  }
 }
 
-.info {
-  box-sizing: border-box;
+.info-slide {
   display: flex;
   flex-direction: column;
   width: 294px;
   min-height: 148px;
+  max-height: 300px;
   padding: 24px;
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(31px);
+  overflow: auto;
   cursor: pointer;
   transition: background 0.3s;
-
+  background: rgba(255, 255, 255, 0.9);
   @include hov {
-    background: rgba(255, 240, 230, 0.7);
-    .info__price::before {
+    background: rgba(255, 240, 230, 0.9);
+    .info-slide__price::before {
       color: $color-prim;
     }
   }
 
-  &__title {
-    &:not(:last-child) {
-      margin-bottom: 4px;
+  @supports ((backdrop-filter: blur(31px)) or (-webkit-backdrop-filter: blur(31px))) {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(31px);
+    -webkit-background-filter: blur(31px);
+    @include hov {
+      background: rgba(255, 240, 230, 0.7);
     }
   }
 
-  &__text {
-    color: $color-gray;
-    &:not(:last-child) {
-      margin-bottom: 8px;
-    }
-  }
-
-  &__price {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
+  @include media-t {
+    width: 100%;
+    min-height: auto;
+    flex-direction: row;
     align-items: center;
-    margin-top: auto;
-    @include font(2rem, 1.5, 600, $color-title);
-
-    &::before {
-      width: 24px;
-      height: 24px;
-      @include font(12px, 24px, 600, $color-dark);
-      text-align: center;
-      transition: color 0.3s;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px 30px;
+    @include hov {
+      background: $color-prim-lt;
     }
+  }
+  @include media-m {
+    padding: 20px;
+  }
+  @include media-s {
+    flex-direction: column;
+    align-items: start;
+  }
+}
+
+.info-slide__title {
+  &:not(:last-child) {
+    margin-bottom: 4px;
+    @include media-t {
+      margin-bottom: 0;
+    }
+  }
+  @include media-t {
+    flex-basis: 25%;
+  }
+}
+
+.info-slide__text {
+  color: $color-gray;
+  &:not(:last-child) {
+    margin-bottom: 8px;
+    @include media-t {
+      margin-bottom: 0;
+    }
+  }
+  @include media-t {
+    flex-grow: 1;
+    text-align: center;
+  }
+  @include media-m {
+    text-align: left;
+    order: 1;
+    flex-basis: 100%;
+  }
+}
+
+.info-slide__price {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  white-space: nowrap;
+  @include font(20px, 1.5, 600, $color-title);
+
+  &::before {
+    width: 24px;
+    height: 24px;
+    @include font(12px, 24px, 600, $color-dark);
+    text-align: center;
+    transition: color 0.3s;
+  }
+
+  @include media-t {
+    margin-top: 0;
+    flex-basis: 25%;
+  }
+  @include media-m {
+    flex-basis: auto;
   }
 }

@@ -28,6 +28,9 @@
   align-items: center;
   flex-basis: perc(494px);
   min-width: 450px;
+  @include media-m {
+    min-width: auto;
+  };
 }
 
 .header__menu {
@@ -50,7 +53,7 @@
   z-index: 20;
   padding: 5px;
   margin-left: -5px;
-  @include font(2.4rem, 1, 700, $color-dark);
+  @include font(24px, 1, 700, $color-dark);
   @include hov {
     color: $color-prim;
   }

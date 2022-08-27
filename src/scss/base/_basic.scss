@@ -1,12 +1,11 @@
 html {
-  box-sizing: border-box;
   scroll-behavior: smooth;
 }
 
 *,
 *:before,
 *:after {
-  box-sizing: inherit;
+  box-sizing: border-box;
   padding: 0px;
   margin: 0px;
   border: 0px;
@@ -68,7 +67,7 @@ button {
   background: transparent;
   border: none;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: all 0.3s;
   outline-offset: 2px;
 }
 
@@ -101,7 +100,7 @@ input:focus-visible {
 // ---------------------------
 
 [class*='__wrapper'] {
-  max-width: $content-width + 30px * 2;
+  max-width: $wrapper-width;
   margin: 0 auto;
   padding: 0 30px;
   @include media-m {

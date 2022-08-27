@@ -1,18 +1,20 @@
 export const swiper = new Swiper('.swiper', {
   loop: true,
-  speed: 400,
+  speed: 600,
+  slidesPerView: 1,
   spaceBetween: 32,
   grabCursor: true,
   loopAdditionalSlides: 1,
+  parallax: true,
 
   pagination: {
-    el: '.swiper__dots',
+    el: '.hero__slider .controls__dots',
     clickable: true,
   },
 
   navigation: {
-    nextEl: '.swiper__btn-next',
-    prevEl: '.swiper__btn-prev',
+    nextEl: '.hero__slider .button-arrow_next',
+    prevEl: '.hero__slider .button-arrow_prev',
   },
 
   // autoplay: {

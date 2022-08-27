@@ -1,0 +1,60 @@
+.button {
+  height: 48px;
+  @include font(16px, 1.5, 600, $color-light);
+
+  &_colored {
+    background: $color-prim;
+    @include hov {
+      background: $color-prim-md;
+    }
+  }
+
+  &_bordered {
+    color: $color-prim;
+    border: 1px solid $color-prim;
+  }
+}
+
+.button-arrow,
+.button-round {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.button-arrow {
+  color: $color-prim;
+  background: $color-prim-lt;
+
+  &_prev {
+    transform: rotate(180deg);
+  }
+
+  &_shadowed {
+    background: $color-light;
+    box-shadow: 0px 4px 14px 1px rgba(0, 0, 0, 0.16);
+  }
+
+  &:hover {
+    background: $color-prim-md;
+    color: $color-light;
+    opacity: 0.8;
+  }
+
+  &:focus,
+  &:active {
+    color: $color-light;
+    background: $color-prim;
+    opacity: 1;
+  }
+}
+
+.button-round {
+  &_discount {
+    background: $color-accent-red;
+  }
+
+  &_new {
+    background: $color-accent-green;
+  }
+}

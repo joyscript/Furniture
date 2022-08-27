@@ -17,10 +17,10 @@
       width: perc(476, 1440);
     }
     @include media(1070px) {
-      width: 300px;
+      width: perc(300, 1024);
     }
     @include media-t {
-      width: 277px;
+      width: perc(277, 768);
     }
     @include media-m {
       width: 300px;
@@ -32,41 +32,154 @@
 }
 
 .hero__wrapper {
-  position: relative;
-  z-index: 2;
+  display: flex;
+  align-items: end;
   padding-top: 141px;
+  @include media-t {
+    display: block;
+    padding-top: 85px;
+    padding-bottom: 60px;
+  }
+  @include media-m {
+    padding: 70px 0 60px;
+  }
+  @include media-sm {
+    padding: 50px 0;
+  }
 }
 
 .hero__content {
-  position: absolute;
-  z-index: 3;
-  width: perc(494, 1300);
+  position: relative;
+  z-index: 5;
+  flex: 0 0 perc(494px);
+  align-self: start;
   min-width: 450px;
-  padding: 60px;
-  background: rgba(255, 255, 255, 0.72);
-  backdrop-filter: blur(31px);
-  box-shadow: -1px 1px 3px rgba(200, 200, 200, 0.3);
+  margin-bottom: 40px;
+  @include media-t {
+    width: 80%;
+    margin: 0 auto -95px;
+  }
+  @include media-m {
+    width: 85%;
+    margin-bottom: -90px;
+  }
+  @include media-sm {
+    min-width: auto;
+    width: 100%;
+    margin-bottom: 0;
+  }
 }
 
-.hero__title {
+.hero__slider {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  min-width: 0;
+  @include media-t {
+    flex-direction: column-reverse;
+  }
+}
+
+.hero__button-add {
+  display: none;
+}
+
+// -----------------
+
+.intro {
+  padding: 60px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: -1px 1px 3px rgba(200, 200, 200, 0.3);
+  @supports ((backdrop-filter: blur(31px)) or (-webkit-backdrop-filter: blur(31px))) {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(31px);
+    -webkit-background-filter: blur(31px);
+  }
+  @include media(1200px) {
+    padding: 50px;
+  }
+  @include media-t {
+    padding: 30px;
+  }
+  @include media-m {
+    padding: 30px 20px;
+  }
+  @include media-sm {
+    padding: 40px 20px 30px;
+  }
+}
+
+.intro__title {
   &:not(:last-child) {
     margin-bottom: 16px;
   }
-}
-
-.hero__text {
-  font-size: 2rem;
-  &:not(:last-child) {
-    margin-bottom: 48px;
+  @include media-l {
+    font-size: 52px;
+  }
+  @include media(1200px) {
+    font-size: 48px;
+  }
+  @include media-t {
+    max-width: 500px;
+    margin: 0 auto;
+    font-size: 40px;
+    text-align: center;
+  }
+  @include media-m {
+    max-width: 430px;
+    font-size: 34px;
   }
 }
 
-.hero__button {
+.intro__text {
+  flex-grow: 1;
+  font-size: 20px;
+  &:not(:last-child) {
+    margin-bottom: 48px;
+    @include media-l {
+      margin-bottom: 38px;
+    }
+    @include media-t {
+      margin-bottom: 0;
+    }
+  }
+
+  @include media-t {
+    text-align: center;
+  }
+  @include media-m {
+    font-size: 18px;
+  }
+}
+
+.intro__button {
   width: 100%;
   height: 78px;
-  @include font(2rem, 1.5, 600, $color-light);
-  background: $color-prim;
-  @include hov {
-    background: $color-prim-md;
+  @include font(20px, 1.5, 600, $color-light);
+  @include media(1200px) {
+    height: 64px;
+  }
+  @include media-t {
+    display: none;
+  }
+}
+
+.hero__button-add {
+  @include media-t {
+    position: relative;
+    z-index: 5;
+    display: block;
+    width: 50%;
+    margin: 0 auto;
+  }
+  @include media-m {
+    width: 320px;
+    height: 60px;
+    margin-top: 10px;
+  }
+  @include media-s {
+    width: calc(100% - 30px);
   }
 }

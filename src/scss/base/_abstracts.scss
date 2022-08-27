@@ -136,6 +136,12 @@ $content-width: 1240px;
   }
 }
 
+@mixin media-sm {
+  @media (max-width: 599.98px) {
+    @content;
+  }
+}
+
 @mixin media-s {
   @media (max-width: 479.98px) {
     @content;

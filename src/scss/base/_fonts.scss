@@ -4,14 +4,9 @@
 @include addFont('Gilroy', 'Gilroy-Bold', 700);
 @include addFont('icons', 'icons', 400);
 
-html {
-  font-size: 10px;
-  line-height: 1;
-}
-
 body {
   font-family: Gilroy, sans-serif;
-  @include font(1.6rem, 1.5, 500, $color-text);
+  @include font(16px, 1.5, 500, $color-text);
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -20,15 +15,15 @@ body {
 }
 
 h1 {
-  @include font(5.6rem, 1.2, 700, $color-title);
+  @include font(56px, 1.2, 700, $color-title);
 }
 
 h2 {
-  @include font(4rem, 1.2, 700, $color-title);
+  @include font(40px, 1.2, 700, $color-title);
 }
 
 h3 {
-  @include font(2.8rem, 1.2, 600, $color-title);
+  @include font(28px, 1.2, 600, $color-title);
 }
 
 // Icons font ---------------------------
