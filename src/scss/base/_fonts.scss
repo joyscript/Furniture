@@ -26,6 +26,14 @@ h3 {
   @include font(28px, 1.2, 600, $color-title);
 }
 
+h4 {
+  @include font(24px, 1.2, 600, $color-title);
+}
+
+h5 {
+  @include font(18px, 1.5, 600, $color-title);
+}
+
 // Icons font ---------------------------
 
 [class*='icon-']::before {
