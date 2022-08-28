@@ -41,3 +41,23 @@ export const headerClickHandler = () => {
     document.body.classList.remove('search-open');
   });
 };
+
+// -----------------------------------------
+
+export const changeHeader = () => {
+  const header = document.querySelector('.header');
+
+  const changeHeaderOnLoad = () => {
+    if (window.scrollY > 20) header.classList.add('scrolled');
+    setTimeout(() => header.classList.add('trans'), 300);
+  };
+
+  const changeHeaderOnScroll = () => {
+    window.scrollY > 20 ? header.classList.add('scrolled') : header.classList.remove('scrolled');
+  };
+
+  if (window.innerWidth >= 600) {
+    changeHeaderOnLoad();
+    window.addEventListener('scroll', changeHeaderOnScroll);
+  }
+};

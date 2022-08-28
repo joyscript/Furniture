@@ -12,6 +12,7 @@ html {
 }
 
 body {
+  position: relative;
   min-width: 320px;
   overflow-y: auto;
 
@@ -20,10 +21,11 @@ body {
     position: absolute;
     top: 0;
     left: 0;
+    bottom: 0;
+    z-index: 15;
     width: 0;
-    height: 100vh;
     background: #000;
-    transition: opacity 0.5s;
+    transition: opacity 0.3s;
     opacity: 0;
   }
 

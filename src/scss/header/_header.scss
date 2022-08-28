@@ -1,26 +1,41 @@
 .header {
-  position: absolute;
+  position: fixed;
   width: 100%;
   z-index: 20;
   padding: 40px 0;
+  opacity: 1;
   @include media-t {
     padding: 20px 0;
   }
   @include media-m {
     padding: 5px 0;
   }
+  @include media-sm {
+    background: $color-light;
+    box-shadow: 0px 1px 1px rgba(237, 215, 190, 0.5);
+  }
   @include media(319.9px) {
     position: static;
+  }
+
+  &.trans {
+    transition: padding 0.3s, background 0.1s;
+  }
+
+  &.scrolled {
+    padding: 3px 0;
+    background: $color-light;
+    box-shadow: 0px 1px 1px rgba(237, 215, 190, 0.5);
+
+    @include media-t {
+      padding: 5px 0;
+    }
   }
 }
 
 .header__wrapper {
-  min-height: 45px;
   display: flex;
   align-items: center;
-  @include media-m {
-    min-height: 40px;
-  }
 }
 
 .header__main {
@@ -30,11 +45,15 @@
   min-width: 450px;
   @include media-m {
     min-width: auto;
-  };
+  }
 }
 
 .header__menu {
   flex-grow: 1;
+  padding: 0 33px 0 27px;
+  @include media-l {
+    padding: 0 25px 0 20px;
+  }
 }
 
 .header__search {

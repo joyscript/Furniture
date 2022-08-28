@@ -14,6 +14,13 @@
     &:focus::placeholder {
       opacity: 0;
     }
+
+    @media (min-width: 1024px) {
+      .scrolled & {
+        height: 44px;
+        outline: 1px solid $color-bg-prim;
+      }
+    }
   }
 
   &__button {
@@ -23,11 +30,16 @@
     width: 45px;
     height: 45px;
     color: #333333;
+    @media (min-width: 1024px) {
+      .scrolled & {
+        height: 44px;
+      }
+    }
   }
 
   @include media-t {
     position: absolute;
-    top: calc(100% - 20px);
+    top: calc(100% - 5px);
     width: calc(100% - 60px);
     box-shadow: 0 0 5px rgba(200, 200, 200, 0.3);
     @include hide();
@@ -35,15 +47,11 @@
 
     .search-open & {
       @include show();
-      top: calc(100% - 10px);
+      top: calc(100% + 10px);
     }
   }
 
   @include media-m {
     width: calc(100% - 30px);
-    top: calc(100% - 5px);
-    .search-open & {
-      top: calc(100% + 5px);
-    }
   }
 }
