@@ -55,6 +55,7 @@
     border-radius: 50%;
     overflow: hidden;
     cursor: pointer;
+    outline-offset: 1px;
 
     @include media-m {
       width: 34px;

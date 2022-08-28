@@ -47,7 +47,6 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  transition: all 0.3s;
   @include media-m {
     display: block;
     padding-right: 0;
@@ -68,7 +67,8 @@
   }
 
   @media (any-hover: hover) and (min-width: 1024px) {
-    &:hover {
+    &:hover,
+    &:focus-within {
       .menu__link {
         color: $color-prim;
         &::before {
@@ -148,6 +148,10 @@
   transition: background 0.3s;
   @include hov {
     background: $color-prim-md;
+  }
+
+  &:focus {
+    outline: none;
   }
 
   @include media-m {

@@ -47,17 +47,7 @@ export const headerClickHandler = () => {
 export const changeHeader = () => {
   const header = document.querySelector('.header');
 
-  const changeHeaderOnLoad = () => {
-    if (window.scrollY > 20) header.classList.add('scrolled');
-    setTimeout(() => header.classList.add('trans'), 300);
-  };
-
-  const changeHeaderOnScroll = () => {
+  window.addEventListener('scroll', () => {
     window.scrollY > 20 ? header.classList.add('scrolled') : header.classList.remove('scrolled');
-  };
-
-  if (window.innerWidth >= 600) {
-    changeHeaderOnLoad();
-    window.addEventListener('scroll', changeHeaderOnScroll);
-  }
+  });
 };

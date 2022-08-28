@@ -37,6 +37,10 @@ body {
       opacity: 0.2;
     }
   }
+
+  &.lock {
+    overflow: hidden;
+  }
 }
 
 h1,
@@ -78,13 +82,13 @@ a {
   text-decoration: none;
   color: inherit;
   transition: color 0.3s;
-  outline-offset: -2px;
+  outline-offset: -1px;
 }
 
 a:focus,
 button:focus,
 input:focus {
-  outline: 2px solid $color-prim;
+  outline: 1px solid $color-prim;
 }
 
 a:focus:not(:focus-visible),
@@ -96,7 +100,7 @@ input:focus:not(:focus-visible) {
 a:focus-visible,
 button:focus-visible,
 input:focus-visible {
-  outline: 2px solid $color-prim;
+  outline: 1px solid $color-prim;
 }
 
 // ---------------------------

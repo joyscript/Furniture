@@ -7,3 +7,4 @@ changeHeader();
 window.addEventListener('load', () => {
   headerClickHandler();
 });
+
