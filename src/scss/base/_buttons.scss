@@ -1,5 +1,6 @@
 .button {
   height: 48px;
+  padding: 12px;
   @include font(16px, 1.5, 600, $color-light);
 
   &_colored {
@@ -12,17 +13,27 @@
   &_bordered {
     color: $color-prim;
     border: 1px solid $color-prim;
+    @include hov {
+      color: $color-light;
+      background: $color-prim-md;
+      border: 1px solid $color-prim-md;
+    }
+  }
+
+  &_white {
+    color: $color-prim;
+    background: $color-light;
+    @include hov {
+      color: $color-light;
+      background: $color-prim-md;
+    }
   }
 }
 
-.button-arrow,
-.button-round {
+.button-arrow {
   width: 48px;
   height: 48px;
   border-radius: 50%;
-}
-
-.button-arrow {
   color: $color-prim;
   background: $color-prim-lt;
 
@@ -46,15 +57,5 @@
     color: $color-light;
     background: $color-prim;
     opacity: 1;
-  }
-}
-
-.button-round {
-  &_discount {
-    background: $color-accent-red;
-  }
-
-  &_new {
-    background: $color-accent-green;
   }
 }

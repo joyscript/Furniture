@@ -1,0 +1,146 @@
+.prod-section__wrapper {
+  padding-bottom: 44px;
+}
+
+.prod-section__title {
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.prod-section__button {
+  width: 245px;
+  margin: 32px auto 0;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 285px);
+  justify-content: center;
+  justify-items: center;
+  gap: 32px;
+  @include media-l {
+    column-gap: 54px;
+  }
+  @include media-t {
+    grid-template-columns: repeat(2, 285px);
+  }
+  @include media-m {
+    grid-template-columns: repeat(auto-fit, 285px);
+    column-gap: 32px;
+  }
+}
+
+.product {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 285px;
+  cursor: pointer;
+  @include hov {
+    .product__popup {
+      @include show;
+    }
+  }
+}
+
+.product__image {
+  padding-top: perc(301, 285);
+  @include img;
+}
+
+.product__content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 16px 30px 16px;
+  background: $color-gray-mlt;
+}
+
+.product__prices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  margin-top: auto;
+}
+
+.product__new-price {
+  @include font(20px, 1.5, 600, $color-title);
+  white-space: nowrap;
+}
+
+.product__old-price {
+  @include font(16px, 1.5, 400, $color-gray-md);
+  text-decoration: line-through;
+  white-space: nowrap;
+}
+
+.product__labels {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.product__label {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $color-light;
+  &_sale {
+    background: $color-accent-red;
+  }
+  &_new {
+    background: $color-accent-green;
+  }
+}
+
+// ---------------------
+
+.product__popup {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: rgba(58, 58, 58, 0.7);
+  transition: all 0.5s;
+  cursor: auto;
+  @include hide;
+}
+
+.product__button {
+  width: 202px;
+  &:not(:last-child) {
+    margin-bottom: 14px;
+  }
+}
+
+.product__actions {
+  display: flex;
+  gap: 28px;
+}
+
+.product__share-btn {
+  padding: 10px;
+  color: $color-light;
+  font-weight: 600;
+  transition: all 0.3s;
+  &:before {
+    margin-right: 8px;
+  }
+  @include hov {
+    color: $color-prim;
+  }
+}
