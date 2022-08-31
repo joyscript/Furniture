@@ -1544,9 +1544,8 @@ input:focus-visible {
   display: flex;
   flex-direction: column;
   width: 285px;
-  cursor: pointer;
 }
-.product:hover .product__popup, .product:focus .product__popup, .product:focus-visible .product__popup, .product:active .product__popup {
+.product:hover .product__actions, .product:focus .product__actions, .product:focus-visible .product__actions, .product:active .product__actions {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
@@ -1583,7 +1582,7 @@ input:focus-visible {
   margin-top: auto;
 }
 
-.product__new-price {
+.product__price {
   font-size: 20px;
   line-height: 1.5;
   font-weight: 600;
@@ -1591,15 +1590,13 @@ input:focus-visible {
   color: #3a3a3a;
   white-space: nowrap;
 }
-
-.product__old-price {
+.product__price_old {
   font-size: 16px;
   line-height: 1.5;
   font-weight: 400;
   font-style: normal;
   color: #b0b0b0;
   text-decoration: line-through;
-  white-space: nowrap;
 }
 
 .product__labels {
@@ -1627,7 +1624,7 @@ input:focus-visible {
   background: #2ec1ac;
 }
 
-.product__popup {
+.product__actions {
   position: absolute;
   top: 0;
   left: 0;
@@ -1640,7 +1637,6 @@ input:focus-visible {
   padding: 20px;
   background: rgba(58, 58, 58, 0.7);
   transition: all 0.5s;
-  cursor: auto;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
@@ -1653,21 +1649,26 @@ input:focus-visible {
   margin-bottom: 14px;
 }
 
-.product__actions {
-  display: flex;
-  gap: 28px;
-}
-
-.product__share-btn {
+.product__link {
   padding: 10px;
   color: #ffffff;
   font-weight: 600;
   transition: all 0.3s;
+  cursor: pointer;
 }
-.product__share-btn:before {
+.product__link:before {
   margin-right: 8px;
 }
-.product__share-btn:hover, .product__share-btn:focus, .product__share-btn:focus-visible, .product__share-btn:active {
+.product__link:first-child {
+  margin-right: 30px;
+}
+.product__link:hover, .product__link:focus, .product__link:focus-visible, .product__link:active {
+  color: #e89f71;
+}
+
+.products__error {
+  font-size: 22px;
+  text-align: center;
   color: #e89f71;
 }
 
