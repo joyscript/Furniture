@@ -29,7 +29,7 @@
     ],
     "image": "02.jpg",
     "price": "2.500.000",
-    "priceOld": "",
+    "priceOld": "3.500.000",
     "shareUrl": "",
     "likeUrl": ""
   },
@@ -86,17 +86,13 @@
     "text": "Small mug",
     "labels": [
       {
-        "type": "sale",
-        "value": "-50%"
-      },
-      {
         "type": "new",
         "value": "New"
       }
     ],
     "image": "06.jpg",
-    "price": "1.500.000",
-    "priceOld": "2.500.000",
+    "price": "150.000",
+    "priceOld": "",
     "shareUrl": "",
     "likeUrl": ""
   },
@@ -141,13 +137,13 @@
     "text": "Minimalist white table",
     "labels": [
       {
-        "type": "new",
-        "value": "New"
+        "type": "sale",
+        "value": "-30%"
       }
     ],
     "image": "09.jpg",
-    "price": "700.000",
-    "priceOld": "",
+    "price": "2.500.000",
+    "priceOld": "3.500.000",
     "shareUrl": "",
     "likeUrl": ""
   },
@@ -163,7 +159,7 @@
       }
     ],
     "image": "10.jpg",
-    "price": "300.000",
+    "price": "900.000",
     "priceOld": "",
     "shareUrl": "",
     "likeUrl": ""
@@ -173,14 +169,9 @@
     "url": "#",
     "title": "Heaven",
     "text": "Beautiful set of vases",
-    "labels": [
-      {
-        "type": "new",
-        "value": "New"
-      }
-    ],
+    "labels": [],
     "image": "11.jpg",
-    "price": "450.000",
+    "price": "700.000",
     "priceOld": "",
     "shareUrl": "",
     "likeUrl": ""
@@ -197,7 +188,7 @@
       }
     ],
     "image": "12.jpg",
-    "price": "100.000",
+    "price": "300.000",
     "priceOld": "",
     "shareUrl": "",
     "likeUrl": ""

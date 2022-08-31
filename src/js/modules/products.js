@@ -4,25 +4,25 @@ import { fetchData } from './services.js';
 export const productsHandler = async () => {
   const container = document.querySelector('.products');
   const showMoreBtn = document.querySelector('.prod-section__button');
-  let articles = [];
 
+  let index = 0;
   let cardsQuantity = 4;
   if (window.innerWidth < 1300 && window.innerWidth >= 1024) cardsQuantity = 3;
 
-  const renderArticles = () => {
-    for (let i = 0; i < cardsQuantity; i++) {
-      if (!articles[i]) break;
-      container.insertAdjacentElement('beforeend', articles[i]);
+  const renderArticles = (data) => {
+    for (let i = index; i < index + cardsQuantity; i++) {
+      if (!data[i]) break;
+      const article = new Product(data[i]).generateArticle();
+      container.insertAdjacentElement('beforeend', article);
     }
-    articles.splice(0, cardsQuantity);
-    if (!articles.length) showMoreBtn.remove();
+    index += cardsQuantity;
+    if (!data[index]) showMoreBtn.remove();
   };
 
   try {
     const data = await fetchData('./json/products.json');
-    data.forEach((item) => articles.push(new Product(item).generateArticle()));
-    renderArticles();
-    showMoreBtn.addEventListener('click', () => renderArticles());
+    renderArticles(data);
+    showMoreBtn.addEventListener('click', () => renderArticles(data));
   } catch (err) {
     console.error(err.message);
     showMoreBtn.remove();

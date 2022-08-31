@@ -7,26 +7,26 @@ export class Product {
     this.image = image;
     this.price = price;
     this.priceOld = priceOld;
-    this.shareUrl = shareUrl;
-    this.likeUrl = likeUrl;
+    this.shareUrl = shareUrl || '#!';
+    this.likeUrl = likeUrl || '#!';
   }
 
   generateArticle() {
     let template = '';
     let article = document.createElement('article');
     article.className = 'product';
-
     article.setAttribute('data-id', this.id);
 
-    if (this.image) template += ` <div class="product__image"><img src="img/products/${this.image}" alt="Product" />`;
+    template += `<div class="product__image">`;
+    if (this.image) template += `<img src="img/products/${this.image}" alt="Product" />`;
     template += `</div>`;
 
     template += `<div class="product__content">`;
     if (this.title) template += `<h4 class="product__title">${this.title}</h4>`;
     if (this.text) template += `<p class="product__text">${this.text}</p>`;
     if (this.price) {
-      template += `<div class="product__prices"><span class="product__price">${this.price}</span>`;
-      if (this.priceOld) template += `<span class="product__price product__price_old">${this.priceOld}</span>`;
+      template += `<div class="product__prices"><span class="product__price">Rp ${this.price}</span>`;
+      if (this.priceOld) template += `<span class="product__price product__price_old">Rp ${this.priceOld}</span>`;
       template += `</div>`;
     }
     template += `</div>`;

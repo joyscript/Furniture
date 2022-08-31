@@ -35,6 +35,7 @@
   display: flex;
   flex-direction: column;
   width: 285px;
+  background: $color-gray-lt;
   @include hov {
     .product__actions {
       @include show;
@@ -120,21 +121,25 @@
 .product__button {
   width: 202px;
   &:not(:last-child) {
-    margin-bottom: 14px;
+    margin-bottom: 24px;
   }
 }
 
+.product__links {
+  display: flex;
+  gap: 48px;
+}
+
 .product__link {
-  padding: 10px;
+  display: flex;
+  align-items: center;
   color: $color-light;
   font-weight: 600;
   transition: all 0.3s;
   cursor: pointer;
   &:before {
     margin-right: 8px;
-  }
-  &:first-child {
-    margin-right: 30px;
+    font-size: 20px;
   }
   @include hov {
     color: $color-prim;

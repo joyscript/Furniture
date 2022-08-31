@@ -1544,6 +1544,7 @@ input:focus-visible {
   display: flex;
   flex-direction: column;
   width: 285px;
+  background: #d8d8d8;
 }
 .product:hover .product__actions, .product:focus .product__actions, .product:focus-visible .product__actions, .product:active .product__actions {
   opacity: 1;
@@ -1646,11 +1647,17 @@ input:focus-visible {
   width: 202px;
 }
 .product__button:not(:last-child) {
-  margin-bottom: 14px;
+  margin-bottom: 24px;
+}
+
+.product__links {
+  display: flex;
+  gap: 48px;
 }
 
 .product__link {
-  padding: 10px;
+  display: flex;
+  align-items: center;
   color: #ffffff;
   font-weight: 600;
   transition: all 0.3s;
@@ -1658,9 +1665,7 @@ input:focus-visible {
 }
 .product__link:before {
   margin-right: 8px;
-}
-.product__link:first-child {
-  margin-right: 30px;
+  font-size: 20px;
 }
 .product__link:hover, .product__link:focus, .product__link:focus-visible, .product__link:active {
   color: #e89f71;
