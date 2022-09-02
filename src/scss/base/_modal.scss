@@ -1,0 +1,175 @@
+.modal-cart {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  background: rgba(0, 0, 0, 0.4);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+
+  &.active {
+    display: flex;
+  }
+}
+
+.modal-cart__dialog {
+  width: 100%;
+  max-width: 750px;
+  max-height: 100%;
+  background: $color-light;
+  padding: 30px 45px 45px;
+  overflow: auto;
+
+  @include media-m {
+    padding: 10px 15px 20px;
+  }
+}
+
+.modal-cart__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.modal-cart__title {
+  font-size: 36px;
+  font-weight: 700;
+  @include media-m {
+    font-size: 32px;
+  }
+}
+
+.modal-cart__close {
+  font-size: 50px;
+  line-height: 1;
+  @include hov {
+    color: $color-prim-md;
+  }
+}
+
+.modal-cart__list {
+  margin-bottom: 40px;
+  @include media-s {
+    margin-bottom: 25px;
+  }
+}
+
+// -----------------------
+
+.modal-cart__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 15px 0;
+  border-bottom: 1px solid #d9d9d9;
+  @include media-s {
+    gap: 10px;
+  }
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  @include media-m {
+    gap: 15px;
+  }
+  @include media-s {
+    gap: 10px;
+  }
+
+  &__image {
+    width: 100px;
+    height: perc(301, 285);
+    @include media-m {
+      width: 50px;
+    }
+  }
+
+  &__title {
+    width: 150px;
+    @include media-m {
+      width: 110px;
+      font-size: 20px;
+      line-height: 1;
+    }
+  }
+
+  &__price {
+    white-space: nowrap;
+    @include font(20px, 1, 500, $color-title);
+    @include media-m {
+      font-size: 18px;
+    }
+    @include media-s {
+      display: none;
+    }
+  }
+}
+
+.counter {
+  width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @include media-m {
+    width: 105px;
+  }
+  @include media-s {
+    width: 90px;
+  }
+
+  &__btn {
+    width: 40px;
+    height: 40px;
+    font-size: 30px;
+    @include media-m {
+      width: 35px;
+      height: 35px;
+    }
+    @include media-s {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  &__amount {
+    text-align: center;
+    @include font(22px, 1, 500, $color-title);
+    @include media-m {
+      font-size: 20px;
+    };
+    @include media-s {
+      font-size: 18px;
+    }
+  }
+}
+
+// ----------------------
+
+.modal-cart__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.modal-cart__pricetag {
+  @include font(26px, 48px, 700, $color-title);
+  @include media-s {
+    font-size: 22px;
+  }
+}
+
+.modal-cart__order-btn {
+  width: 120px;
+  height: 50px;
+  font-size: 20px;
+}
